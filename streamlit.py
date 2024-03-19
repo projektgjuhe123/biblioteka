@@ -5,7 +5,7 @@ from PIL import Image
 # Assuming 'your_image.png' is the image file you want to display at the top of the page.
 # Make sure to provide the correct path to your image file.
 
-image = Image.open('/home/mac/projekt/images/image2.jpg')
+image = Image.open('/app/image2.jpg')
 image = image.resize((200, 200))
 st.image(image)
 # Display the image using st.image
@@ -13,7 +13,7 @@ st.image(image)
 st.title('Biblioteka e shkolles Sevasti Qiriazi')
 
 # Path to the Excel file
-file_path = '/home/mac/books.xlsx'
+file_path = '/app/books.xlsx'
 
 # Read the Excel file
 df = pd.read_excel(file_path)

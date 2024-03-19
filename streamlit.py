@@ -5,9 +5,9 @@ from PIL import Image
 # Assuming 'your_image.png' is the image file you want to display at the top of the page.
 # Make sure to provide the correct path to your image file.
 
-image = Image.open('/app/image2.jpg')
-image = image.resize((200, 200))
-st.image(image)
+#image = Image.open('/app/image2.jpg')
+#image = image.resize((200, 200))
+#st.image(image)
 # Display the image using st.image
 
 st.title('Biblioteka e shkolles Sevasti Qiriazi')

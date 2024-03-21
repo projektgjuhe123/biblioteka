@@ -46,7 +46,7 @@ with search_container:
             }
         </style>
     """, unsafe_allow_html=True)
-    search_term = st.text_input("Kerko per nje libër ose nje autor", key="search", on_change=None)
+    search_term = st.text_input("Kerko per një libër ose një autor", key="search", on_change=None)
 
 # Filter the DataFrame based on the search term
 if search_term:

@@ -29,7 +29,7 @@ image = image.resize((200, 200))
 st.image(image)
 # Display the image using st.image
 
-st.title('Biblioteka e shkolles Sevasti Qiriazi')
+st.title('Biblioteka e shkollës Sevasti Qiriazi')
 
 # Path to the Excel file
 file_path = '/app/books.xlsx'
@@ -37,7 +37,16 @@ file_path = '/app/books.xlsx'
 df = pd.read_excel(file_path)
 
 # Placeholder for the search functionality
-search_term = st.text_input("Kerko per nje liber ose nje autor", key="search")
+search_container = st.container()
+with search_container:
+    st.markdown("""
+        <style>
+            input[data-baseweb="input"] {
+                font-size: 25px !important;  # Set the size as needed
+            }
+        </style>
+    """, unsafe_allow_html=True)
+    search_term = st.text_input("Kerko per nje libër ose nje autor", key="search", on_change=None)
 
 # Filter the DataFrame based on the search term
 if search_term:

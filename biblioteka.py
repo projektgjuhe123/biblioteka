@@ -48,10 +48,17 @@ with search_container:
     """, unsafe_allow_html=True)
     search_term = st.text_input("Kerko per një libër ose një autor", key="search", on_change=None)
 
-# Filter the DataFrame based on the search term
-if search_term:
-    df_display = df[df.apply(lambda row: search_term.lower() in str(row['Titulli I Librit']).lower() 
-                             or search_term.lower() in str(row['Autori']).lower(), axis=1)]
+def normalize_text(text):
+    replacements = {'ç': 'c', 'ë': 'e'}
+    return ''.join(replacements.get(ch, ch) for ch in text)
+
+# Apply the normalize function to the search term
+normalized_search_term = normalize_text(search_term.lower())
+
+# Filter the DataFrame based on the normalized search term
+if normalized_search_term:
+    df_display = df[df.apply(lambda row: normalized_search_term in normalize_text(str(row['Titulli i Librit']).lower()) or 
+                             normalized_search_term in normalize_text(str(row['Autori']).lower()), axis=1)]
 else:
     df_display = df
 

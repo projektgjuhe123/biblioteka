@@ -65,12 +65,10 @@ else:
 
 def style_dataframe(dataframe):
     return dataframe.style.set_properties(**{
-        'background-color': '#0e1117',  # Dark background for cells.
-        'color': 'white',  # Bright text color for readability.
         'border-color': 'grey',
     }).set_table_styles([{
         'selector': 'th',
         'props': [('background-color', '#414141'), ('color', 'white')]
-    }])
+    }]).set_properties(subset=['Sasia'], **{'text-align': 'left'})  # Align 'Sasia' column to the left
 
 st.dataframe(style_dataframe(df_display), use_container_width=True)

@@ -29,7 +29,7 @@ image = image.resize((200, 200))
 st.image(image)
 # Display the image using st.image
 
-st.title('Biblioteka e shkollës Sevasti Qiriazi')
+st.title('Biblioteka e shkollës "Sevasti Qiriazi"')
 
 # Path to the Excel file
 file_path = '/app/books.xlsx'
@@ -46,7 +46,7 @@ with search_container:
             }
         </style>
     """, unsafe_allow_html=True)
-    search_term = st.text_input("Kerko per një libër ose një autor", key="search", on_change=None)
+    search_term = st.text_input("Kerko për një libër ose një autor", key="search", on_change=None)
 
 def normalize_text(text):
     replacements = {'ç': 'c', 'ë': 'e'}

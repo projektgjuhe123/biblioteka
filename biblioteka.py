@@ -2,14 +2,30 @@ import streamlit as st
 import pandas as pd
 from PIL import Image
 
-# Assuming 'your_image.png' is the image file you want to display at the top of the page.
-# Make sure to provide the correct path to your image file.
-
+favicon = Image.open('/app/image2.jpg')
 st.set_page_config(
         page_title="Biblioteka",
-        page_icon="books",
+        page_icon=favicon,
         layout="wide",
     )
+
+spacer, right_column = st.columns([0.9, 0.1])  # Adjust the ratio as needed to push the button to the right
+
+with right_column:
+    # Check if the key 'toggle' exists in session state, if not, initialize it to 0
+    if 'toggle' not in st.session_state:
+        st.session_state['toggle'] = 0
+
+    # When the button is clicked, increment the 'toggle' count
+    if st.button("Dhuro nje liber"):
+        st.session_state['toggle'] += 1
+
+    # If the 'toggle' count is odd, display the message
+    if st.session_state['toggle'] % 2 == 1:
+        st.write("Per te dhuruar nje liber na kontakto ne sqiriazi23@gmail.com")
+    else:
+        # If the 'toggle' count is even, do not display anything (or you can clear the previous message)
+        st.write("")
 
 st.markdown("""
     <style>
@@ -26,9 +42,10 @@ st.markdown("""
 
 image = Image.open('/app/image2.jpg')
 image = image.resize((200, 200))
-st.image(image)
 # Display the image using st.image
+st.image(image)
 
+# Title of the site
 st.title('Biblioteka e shkollës "Sevasti Qiriazi"')
 
 # Path to the Excel file
